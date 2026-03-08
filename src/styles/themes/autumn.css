@@ -1,0 +1,476 @@
+/* ==========================================================================
+  AUTUMN THEME — Old-School Black & White
+  Strict monochrome contrast, square edges, quiet motion, and typography
+  that feels more archival than glossy.
+  ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:wght@600;700&display=swap");
+
+/* ── Font tokens ───────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] {
+  --font-body: "IBM Plex Mono", "Cascadia Code", "Segoe UI", monospace;
+  --font-heading: "Source Serif 4", Georgia, serif;
+  --radius: 0.35rem;
+}
+
+/* ── Dark mode token overrides — flip primary to white, high contrast ── */
+:root[data-theme="autumn"][data-mode="dark"] {
+  --theme-primary: 0 0% 100%;
+  --theme-accent: 0 0% 72%;
+  --theme-primary-foreground-dark: 0 0% 0%;
+  --theme-accent-foreground: 0 0% 0%;
+  --theme-kpi-up: 0 0% 82%;
+  --theme-kpi-down: 0 0% 52%;
+  --theme-chart-1: 0 0% 100%;
+  --theme-chart-2: 0 0% 72%;
+  --theme-chart-3: 0 0% 50%;
+  --theme-chart-4: 0 0% 85%;
+  --theme-chart-5: 0 0% 38%;
+  --theme-chart-6: 0 0% 62%;
+}
+
+/* ── Typography ────────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] body {
+  font-family: var(--font-body);
+  letter-spacing: 0;
+}
+
+:root[data-theme="autumn"] h1,
+:root[data-theme="autumn"] h2,
+:root[data-theme="autumn"] h3,
+:root[data-theme="autumn"] h4,
+:root[data-theme="autumn"] h5,
+:root[data-theme="autumn"] h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+/* ── Body background — flat, no radial glow ────────────────────────────── */
+:root[data-theme="autumn"][data-mode="dark"] body {
+  background-image: none;
+  background-color: hsl(0 0% 4%);
+}
+
+:root[data-theme="autumn"][data-mode="light"] body {
+  background-image: none;
+  background-color: hsl(0 0% 98%);
+}
+
+/* ── Layout header ─────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-layout-header {
+  border-radius: 0.35rem;
+  box-shadow: none;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+/* ── Main stage ────────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-main-stage {
+  border-radius: 0.35rem;
+  box-shadow: none;
+}
+
+/* ── Navigation ribbon ─────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-nav-ribbon {
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.35rem;
+  background: hsl(var(--card));
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+:root[data-theme="autumn"] .theme-nav-chip {
+  background: hsl(var(--muted));
+  border-radius: 0.25rem;
+}
+
+:root[data-theme="autumn"] .theme-nav-chip-secondary {
+  background: transparent;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.25rem;
+}
+
+/* ── Cards — flat, solid borders, no blur ──────────────────────────────── */
+:root[data-theme="autumn"] .theme-widget-card {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  border-radius: 0.35rem;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+:root[data-theme="autumn"] .theme-widget-card:hover {
+  transform: translateY(-1px);
+  box-shadow: none;
+  border-color: hsl(var(--foreground) / 0.45);
+}
+
+:root[data-theme="autumn"] .glass-card {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+:root[data-theme="autumn"] .section-frame {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  backdrop-filter: none;
+  box-shadow: none;
+  border-radius: 0.35rem;
+}
+
+:root[data-theme="autumn"] .theme-context-card {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  backdrop-filter: none;
+  border-radius: 0.35rem;
+  box-shadow: none;
+}
+
+:root[data-theme="autumn"] .theme-data-card {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--muted) / 0.4);
+  border-radius: 0.25rem;
+  box-shadow: none;
+}
+
+:root[data-theme="autumn"] .theme-context-list-item {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--muted) / 0.3);
+  border-radius: 0.25rem;
+}
+
+/* ── Widget icon ───────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-widget-icon {
+  box-shadow: none;
+}
+
+/* ── Dashboard hero — flat solid background ────────────────────────────── */
+:root[data-theme="autumn"][data-mode="dark"] .theme-dashboard-hero {
+  background: hsl(0 0% 7%);
+}
+
+:root[data-theme="autumn"][data-mode="light"] .theme-dashboard-hero {
+  background: hsl(0 0% 94%);
+}
+
+:root[data-theme="autumn"][data-mode="dark"] .theme-dashboard-stat {
+  border-color: hsl(0 0% 28%);
+  background: hsl(0 0% 10%);
+}
+
+:root[data-theme="autumn"][data-mode="light"] .theme-dashboard-stat {
+  border-color: hsl(var(--border));
+  background: hsl(var(--muted) / 0.3);
+}
+
+/* ── Hero panel ────────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-hero-panel {
+  border-radius: 0.5rem;
+}
+
+/* ── Museum grid — simple thin lines ───────────────────────────────────── */
+:root[data-theme="autumn"] .museum-grid {
+  background-image: none;
+}
+
+/* ── Gold kicker — monochrome border pill ──────────────────────────────── */
+:root[data-theme="autumn"][data-mode="dark"] .gold-kicker {
+  border-color: hsl(0 0% 100% / 0.35);
+  background: hsl(0 0% 100% / 0.08);
+  color: hsl(0 0% 90%);
+}
+
+:root[data-theme="autumn"][data-mode="light"] .gold-kicker {
+  border-color: hsl(0 0% 0% / 0.3);
+  background: hsl(0 0% 0% / 0.06);
+  color: hsl(0 0% 20%);
+}
+
+/* ── Topbar chips ──────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-topbar-chip {
+  border-color: hsl(var(--border));
+  background: hsl(var(--card));
+  backdrop-filter: none;
+  border-radius: 0.375rem;
+}
+
+:root[data-theme="autumn"] .theme-topbar-action {
+  border-color: hsl(var(--border));
+  background: hsl(var(--card));
+  box-shadow: none;
+}
+
+/* ── Header surface ────────────────────────────────────────────────────── */
+:root[data-theme="autumn"][data-mode="dark"] .theme-header-surface {
+  background: hsl(0 0% 4% / 0.96);
+  border-bottom: 1px solid hsl(0 0% 20%);
+}
+
+:root[data-theme="autumn"][data-mode="light"] .theme-header-surface {
+  background: hsl(0 0% 98% / 0.96);
+  border-bottom: 1px solid hsl(0 0% 85%);
+}
+
+/* ── Environment — completely disabled (no orbs, no ribbon, no glow) ──── */
+:root[data-theme="autumn"] .theme-environment-base {
+  background: none;
+}
+
+:root[data-theme="autumn"] .theme-environment-texture {
+  background-image: none;
+  mask-image: none;
+}
+
+:root[data-theme="autumn"] .theme-environment-grid {
+  background: none;
+  opacity: 0;
+}
+
+:root[data-theme="autumn"] .theme-environment-orb {
+  display: none;
+}
+
+:root[data-theme="autumn"] .theme-environment-orb-a,
+:root[data-theme="autumn"] .theme-environment-orb-b {
+  display: none;
+}
+
+:root[data-theme="autumn"] .theme-environment-ribbon {
+  display: none;
+}
+
+:root[data-theme="autumn"] .theme-environment-ribbon-autumn {
+  display: none;
+}
+
+:root[data-theme="autumn"] .theme-environment-vignette {
+  background: none;
+}
+
+/* ── Image panel ───────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .image-panel {
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  box-shadow: none;
+}
+
+/* ── Floating / Muted / Elevated panels ────────────────────────────────── */
+:root[data-theme="autumn"] .theme-floating-panel {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  backdrop-filter: none;
+  border-radius: 0.5rem;
+  box-shadow: none;
+}
+
+:root[data-theme="autumn"] .theme-muted-panel {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background) / 0.8);
+  border-radius: 0.5rem;
+  box-shadow: none;
+}
+
+:root[data-theme="autumn"] .theme-elevated-section {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background) / 0.9);
+  border-radius: 0.5rem;
+  box-shadow: none;
+}
+
+/* ── Selectable card ───────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-selectable-card {
+  border-radius: 0.5rem;
+  box-shadow: none;
+}
+
+:root[data-theme="autumn"] .theme-selectable-card:hover {
+  box-shadow: 0 2px 8px hsl(0 0% 0% / 0.06);
+}
+
+:root[data-theme="autumn"][data-mode="dark"] .theme-selectable-card-active {
+  border-color: hsl(0 0% 100%);
+  background: hsl(0 0% 100% / 0.08);
+  box-shadow: none;
+}
+
+:root[data-theme="autumn"][data-mode="light"] .theme-selectable-card-active {
+  border-color: hsl(0 0% 0%);
+  background: hsl(0 0% 0% / 0.06);
+  box-shadow: none;
+}
+
+/* ── Empty state ───────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-empty-state {
+  border: 1px dashed hsl(var(--border));
+  background: hsl(var(--card));
+  box-shadow: none;
+}
+
+/* ── Auth surfaces ─────────────────────────────────────────────────────── */
+:root[data-theme="autumn"][data-mode="dark"] .theme-auth-shell {
+  background: hsl(0 0% 4%);
+}
+
+:root[data-theme="autumn"][data-mode="light"] .theme-auth-shell {
+  background: hsl(0 0% 98%);
+}
+
+:root[data-theme="autumn"] .theme-auth-overlay {
+  background: none;
+}
+
+:root[data-theme="autumn"] .theme-auth-panel {
+  border-color: hsl(var(--border));
+  background: hsl(var(--card));
+  box-shadow: none;
+}
+
+:root[data-theme="autumn"] .theme-auth-card {
+  border-color: hsl(var(--border));
+  background: hsl(var(--card));
+  box-shadow: none;
+}
+
+/* ── Pill group ────────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-pill-group {
+  border-color: hsl(var(--border));
+  background: hsl(var(--muted) / 0.3);
+}
+
+:root[data-theme="autumn"][data-mode="dark"] .theme-pill-option-active {
+  background: hsl(0 0% 100%);
+  color: hsl(0 0% 0%);
+}
+
+:root[data-theme="autumn"][data-mode="light"] .theme-pill-option-active {
+  background: hsl(0 0% 0%);
+  color: hsl(0 0% 100%);
+}
+
+/* ── Info banner ───────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-info-banner {
+  border-color: hsl(var(--border));
+  background: hsl(var(--muted) / 0.3);
+  color: hsl(var(--foreground) / 0.7);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+:root[data-theme="autumn"][data-mode="dark"] .theme-footer-surface {
+  background: hsl(0 0% 2%);
+}
+
+:root[data-theme="autumn"][data-mode="light"] .theme-footer-surface {
+  background: hsl(0 0% 95%);
+}
+
+/* ── Sidebar ───────────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-sidebar-shell,
+:root[data-theme="autumn"] .theme-sidebar-pulse,
+:root[data-theme="autumn"] .theme-sidebar-footer {
+  backdrop-filter: none;
+}
+
+/* ── Metric card ───────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-metric-card {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  box-shadow: none;
+  border-radius: 0.5rem;
+}
+
+/* ── Overlays — flat, no gradients ─────────────────────────────────────── */
+:root[data-theme="autumn"][data-mode="dark"] .theme-hero-overlay {
+  background: hsl(0 0% 4% / 0.8);
+}
+
+:root[data-theme="autumn"][data-mode="light"] .theme-hero-overlay {
+  background: hsl(0 0% 98% / 0.6);
+}
+
+:root[data-theme="autumn"][data-mode="dark"] .theme-image-overlay {
+  background: linear-gradient(180deg, transparent 0%, hsl(0 0% 4% / 0.85) 100%);
+}
+
+:root[data-theme="autumn"][data-mode="light"] .theme-image-overlay {
+  background: linear-gradient(180deg, transparent 0%, hsl(0 0% 98% / 0.7) 100%);
+}
+
+:root[data-theme="autumn"][data-mode="dark"] .theme-story-overlay {
+  background: hsl(0 0% 4% / 0.95);
+}
+
+:root[data-theme="autumn"][data-mode="light"] .theme-story-overlay {
+  background: hsl(0 0% 98% / 0.9);
+}
+
+:root[data-theme="autumn"][data-mode="dark"] .theme-section-band {
+  background: hsl(0 0% 6%);
+}
+
+:root[data-theme="autumn"][data-mode="light"] .theme-section-band {
+  background: hsl(0 0% 95%);
+}
+
+/* ── Buttons / inputs — sharp corners ──────────────────────────────────── */
+:root[data-theme="autumn"] button,
+:root[data-theme="autumn"] [role="button"] {
+  border-radius: 0.375rem;
+}
+
+:root[data-theme="autumn"] input,
+:root[data-theme="autumn"] select,
+:root[data-theme="autumn"] textarea {
+  border-radius: 0.375rem;
+}
+
+/* ── Badges — tight, no-color ──────────────────────────────────────────── */
+:root[data-theme="autumn"] [class*="badge"] {
+  border-radius: 0.25rem;
+}
+
+/* ── Tables ────────────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] table {
+  border-collapse: collapse;
+}
+
+:root[data-theme="autumn"] th {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+/* ── Animations overrides — minimal ────────────────────────────────────── */
+:root[data-theme="autumn"] .animate-float-soft {
+  animation: none;
+}
+
+/* ── Preview swatch / badge ────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-preview-swatch {
+  box-shadow: none;
+}
+
+:root[data-theme="autumn"] .theme-preview-shine {
+  background: none;
+}
+
+:root[data-theme="autumn"] .theme-preview-badge {
+  border: 1px solid hsl(var(--foreground) / 0.2);
+  background: hsl(var(--muted) / 0.3);
+  box-shadow: none;
+}
+
+:root[data-theme="autumn"] .theme-preview-check {
+  border: 1px solid hsl(var(--foreground) / 0.2);
+  background: hsl(var(--foreground) / 0.1);
+  box-shadow: none;
+}
+
+/* ── Soft panel ────────────────────────────────────────────────────────── */
+:root[data-theme="autumn"] .theme-soft-panel {
+  border-color: hsl(var(--border));
+  background: hsl(var(--muted) / 0.2);
+}
