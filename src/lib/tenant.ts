@@ -4,6 +4,11 @@ const RESERVED_SUBDOMAINS = new Set(["www", "api", "admin", "app", "platform"]);
 const PLACEHOLDER_WORKSPACE_IDENTIFIERS = new Set(["example", "gmail"]);
 const TENANT_CONTEXT_CACHE_PREFIX = "energyos_tenant_context:";
 const TENANT_CONTEXT_CACHE_TTL_MS = 60_000;
+const PLATFORM_HOST_SUFFIXES = [".onrender.com"];
+
+function isPlatformHost(hostname: string): boolean {
+  return PLATFORM_HOST_SUFFIXES.some((suffix) => hostname.endsWith(suffix));
+}
 
 export interface TenantWorkspaceContext {
   scope: "platform" | "organization";
@@ -161,7 +166,7 @@ export function buildPlatformSiteUrl(pathname = "/", baseUrl?: string): string |
 
 export function getTenantSlugFromHostname(hostname?: string): string | null {
   const value = (hostname ?? (typeof window !== "undefined" ? window.location.hostname : "")).trim().toLowerCase();
-  if (!value || value === "localhost" || value === "127.0.0.1") {
+  if (!value || value === "localhost" || value === "127.0.0.1" || isPlatformHost(value)) {
     return null;
   }
 
